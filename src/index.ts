@@ -1,7 +1,9 @@
 type PlainObject = Record<PropertyKey, unknown>;
 
 export const HAS_OWN = Object.hasOwn;
+
 export const OWN_DESC = Object.getOwnPropertyDescriptor;
+
 export const OWN_DESCS = Object.getOwnPropertyDescriptors;
 
 export function OWN_ENUM_STRING_KEYS(object: PlainObject): string[] {
