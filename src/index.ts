@@ -31,15 +31,7 @@ export function OWN_ENUM_SYMBOL_KEYS(object: PlainObject): symbol[] {
 }
 
 export function OWN_KEYS(object: PlainObject): (string | symbol)[] {
-  const keys = Reflect.ownKeys(object);
-
-  for (const key of keys) {
-    if (isUnsafeKey(key)) {
-      keys.splice(keys.indexOf(key), 1);
-    }
-  }
-
-  return keys;
+  return [...OWN_STRING_KEYS(object), ...OWN_SYMBOL_KEYS(object)];
 }
 
 export function OWN_STRING_KEYS(object: PlainObject): string[] {
