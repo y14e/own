@@ -1,3 +1,3 @@
-# OWN
+# Own
 
 For internal use.
