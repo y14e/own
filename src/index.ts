@@ -16,9 +16,7 @@ export function OWN_ENUM_STRING_KEYS(object: object): PropertyKeys<string> {
   const keys = Object.keys(object);
 
   for (const key of keys) {
-    if (isUnsafeKey(key)) {
-      keys.splice(keys.indexOf(key), 1);
-    }
+    isUnsafeKey(key) && keys.splice(keys.indexOf(key), 1);
   }
 
   return keys;
@@ -28,9 +26,8 @@ export function OWN_ENUM_SYMBOL_KEYS(object: object): PropertyKeys<symbol> {
   const keys = OWN_SYMBOL_KEYS(object);
 
   for (const key of keys) {
-    if (!Object.prototype.propertyIsEnumerable.call(object, key)) {
+    !Object.prototype.propertyIsEnumerable.call(object, key) &&
       keys.splice(keys.indexOf(key), 1);
-    }
   }
 
   return keys;
@@ -44,9 +41,7 @@ export function OWN_STRING_KEYS(object: object): PropertyKeys<string> {
   const keys = Object.getOwnPropertyNames(object);
 
   for (const key of keys) {
-    if (isUnsafeKey(key)) {
-      keys.splice(keys.indexOf(key), 1);
-    }
+    isUnsafeKey(key) && keys.splice(keys.indexOf(key), 1);
   }
 
   return keys;
