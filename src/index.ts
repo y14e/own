@@ -23,8 +23,7 @@ export function OWN_ENUM_SYMBOL_KEYS(object: object): symbol[] {
   const keys = OWN_SYMBOL_KEYS(object);
 
   for (const key of keys) {
-    !Object.prototype.propertyIsEnumerable.call(object, key) &&
-      keys.splice(keys.indexOf(key), 1);
+    !Object.prototype.propertyIsEnumerable.call(object, key) && keys.splice(keys.indexOf(key), 1);
   }
 
   return keys;
